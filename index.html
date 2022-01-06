@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <title>tramites reproper</title>
+  <link rel="stylesheet" href="./css/reset.min.css">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+  <main class="main">
+    <form action="" class="main__form">
+      <h2 class="main__title">Nombre y apellido</h1>
+        <label class="label calle">apellido</label>
+        <input type="text" class="main__form--input">
+        <label class="label calle">DNI</label>
+        <input type="number" class="main__form--input">
+
+        <h2 class="main__title">Dirección</h1>
+
+          <label class="label calle">calle</label>
+          <input type="text" class="main__form--input">
+          <label class="label">repetir calle</label>
+          <input type="text" class="main__form--input">
+          <label class="label ">número</label>
+          <input type="number" class="main__form--input">
+          <label class="label">repetir número</label>
+          <input type="number" class="main__form--input">
+
+          <!--Contact-->
+          <div class="div contact__container">
+            <h2 class="main__title">Contacto</h2>
+            <label class="label">Cod de area</label>
+            <input type="number" class="main__form--input">
+            <label class="label">número</label>
+            <input type="number" class="main__form--input">
+            <input type="submit" value="GUARDAR">
+          </div>
+    </form>
+  </main>
+
+  <script src="./js/app.js"></script>
+
+</body>
+
+</html>
