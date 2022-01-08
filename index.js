@@ -1,6 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
-
 //file system for node JS
 const fs = require('fs')
 
@@ -12,7 +11,14 @@ ipcMain.on('msg', (event, data) => {
   const { nameInputValue, DNInputValue, adressValueFirstInput, numberValueFirstInput, phoneArea, phoneNumber, counterId } = data;
 
   //generate the file
-  fs.appendFile(`../${nameInputValue}-${DNInputValue}-${counterId}.txt`,
+  fs.mkdir(path.join(__dirname, `test/${nameInputValue}`), (err) => {
+    if (err) {
+        return console.error(err);
+    }
+    console.log('Directory created successfully!');
+  });
+  
+  fs.appendFile(`./test/${nameInputValue}/${nameInputValue}-${DNInputValue}-datos.txt`,
     `
   apellido: ${nameInputValue}
   DNI: ${DNInputValue}
@@ -27,8 +33,11 @@ ipcMain.on('msg', (event, data) => {
     if (err) throw err;
     console.log('success saved');
   });
-
+  
 })
+
+
+
 
 
 //window
@@ -63,6 +72,9 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
+
+
+
 
 
 //hot reload for electron JS(like live server for VS code)

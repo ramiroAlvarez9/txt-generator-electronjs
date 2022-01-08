@@ -1,0 +1,11 @@
+
+  apellido: alvarez
+  DNI: 38239529
+  Calle: 123
+  Numero de casa: 123
+
+  --------Celular---------
+
+  Cod de area: 123
+  Numero: 123 
+  
