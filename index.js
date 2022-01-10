@@ -10,15 +10,15 @@ ipcMain.on('msg', (event, data) => {
   //destructuring data
   const { nameInputValue, DNInputValue, adressValueFirstInput, numberValueFirstInput, phoneArea, phoneNumber, counterId } = data;
 
-  //generate the file
-  fs.mkdir(path.join(__dirname, `test/${nameInputValue}`), (err) => {
-    if (err) {
+    fs.mkdir(path.join(__dirname, `records/${nameInputValue}`), (err) => {
+      if (err) {
         return console.error(err);
-    }
-    console.log('Directory created successfully!');
-  });
+      }
+      console.log('Directory created successfully!');
+    });
+
   
-  fs.appendFile(`./test/${nameInputValue}/${nameInputValue}-${DNInputValue}-datos.txt`,
+  fs.appendFile(`./records/${nameInputValue}/${nameInputValue}-${DNInputValue}-datos.txt`,
     `
   apellido: ${nameInputValue}
   DNI: ${DNInputValue}
@@ -29,16 +29,14 @@ ipcMain.on('msg', (event, data) => {
 
   Cod de area: ${phoneArea}
   Numero: ${phoneNumber} 
-  `, function (err) {
-    if (err) throw err;
-    console.log('success saved');
-  });
-  
+  `,
+    //callback function  
+    function (err) {
+      if (err) throw err;
+      console.log('success saved');
+    });
+
 })
-
-
-
-
 
 //window
 function createWindow() {
